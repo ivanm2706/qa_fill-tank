@@ -95,22 +95,23 @@ describe('fillTank', () => {
   it('should round the poured amount by discarding number to the tenth part'
   + 'and price of the purchased fuel the to the nearest hundredth part', () => {
     const customer = {
-      money: 36,
+      money: 100,
       vehicle: {
-        maxTankCapacity: 40,
-        fuelRemains: 10,
+        maxTankCapacity: 50,
+        fuelRemains: 25.3,
       },
     };
 
     const expectedResult = {
-      money: 0.2,
+      money: 71.65,
       vehicle: {
-        maxTankCapacity: 40,
-        fuelRemains: 13.2,
+        maxTankCapacity: 50,
+        fuelRemains: 40.3,
       },
     };
 
-    fillTank(customer, 4);
+    fillTank(customer, 1.89, 15);
+
     expect(customer).toEqual(expectedResult);
   });
 });
